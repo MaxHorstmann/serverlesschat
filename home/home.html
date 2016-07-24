@@ -1,7 +1,10 @@
-<div class="jumbotron" ng-controller="LoginCtrl">
-  <h2 class="text-center"><img src="https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg"></h2>
-  <h2 class="text-center">Home</h2>
-  <div>
-    <!-- TODO  -->
+<div ng-controller="LoginCtrl">
+  <div style="background-color: black; color:white">
+    <p ng-repeat="m in messages">{{ m }}</p>
+   <div>
+
+  <div class="text-center">
+    <a class="btn btn-primary" ng-click="auth.signin()">Login</a>
   </div>
+
 </div>

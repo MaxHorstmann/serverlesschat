@@ -22,9 +22,9 @@ function configFunction($routeProvider, authProvider){
 
     //Configure Auth0
     authProvider.init({
-        domain: 'maxhorstmann.auth0.com',
-        clientID: 'KGxx68rflxDHq0fsxaCFpW4rbHAscoBZ'
-    });
+          domain: 'maxhorstmann.auth0.com',
+          clientID: 'WDEmnAHd78R0th9837oyAZgZzRmHmTn4'
+        });
   }
 
 function runFunction ($rootScope, auth, store, jwtHelper, $location){
@@ -35,11 +35,11 @@ function runFunction ($rootScope, auth, store, jwtHelper, $location){
   };
   // Called when lock shows
   auth.lockOn('show', function () {
-    alert('shown');
+    //alert('shown');
   });
   // Called when lock hides
   auth.lockOn('hide', function () {
-    alert('hidden');
+    //alert('hidden');
   });
   // Called when authentication is successful
   auth.lockOn("authenticated", function(authResult) {
