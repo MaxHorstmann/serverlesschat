@@ -8,16 +8,7 @@ function configFunction($routeProvider, authProvider){
     .when( '/', {
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
-      requiresLogin: true
-    })
-    .when( '/settings', {
-      controller: 'SettingsCtrl',
-      templateUrl: 'settings/settings.html',
-      requiresLogin: true
-    })
-    .when( '/login', {
-      controller: 'LoginCtrl',
-      templateUrl: 'login/login.html'
+      requiresLogin: false
     });
 
     //Configure Auth0
@@ -30,6 +21,7 @@ function configFunction($routeProvider, authProvider){
 function runFunction ($rootScope, auth, store, jwtHelper, $location){
   // Wrapper function to handle profile and toke storage
   var saveUserInfo = function(profile, token) {
+    console.log(profile);
     store.set('profile', profile);
     store.set('token', token);
   };

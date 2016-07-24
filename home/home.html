@@ -1,9 +1,11 @@
-<div ng-controller="LoginCtrl">
+<div ng-controller="HomeCtrl">
   <div style="background-color: black; color:white">
     <p ng-repeat="m in messages">{{ m }}</p>
-   <div>
-
-  <div class="text-center">
+  </div>
+  <div>
+    <input placeholder="say something.." type="text" ng-model="nextMessage">
+    <input type=submit ng-click="sendMessage()">
+  <div>
     <a class="btn btn-primary" ng-click="auth.signin()">Login</a>
   </div>
 
