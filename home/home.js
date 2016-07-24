@@ -4,9 +4,10 @@ angular.module('app')
 function homeCtrlFunc($scope, auth ,store){
     $scope.auth = auth;
 
-    $scope.messages = ["John: Hi!", "Alice: Hello there!"];
-    
+    $scope.messages = ["John: Hi!", "Alice: Hello there!"]; // TODO bind to Firebase
+
     $scope.sendMessage = function() {
-        alert($scope.nextMessage);
+        auth.signin(); // TODO only if necessary
+        //alert($scope.nextMessage);
     }
 }
