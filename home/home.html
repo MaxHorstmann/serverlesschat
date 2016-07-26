@@ -1,17 +1,17 @@
-<div ng-controller="HomeCtrl">
-  <div style="background-color: black; color:white">
-    <div ng-repeat="m in messages">
-    	<span style="color:yellow">{{ m.name }}:</span><span style="margin-left: 10px">{{ m.message }}</span>
-    </div>
-  </div>
-  <div>
-  	<form ng-submit="sendMessage()">
-	    <input autofocus placeholder="say something.." type="text" ng-model="nextMessage">
-	    <input class="btn btn-primary" type=submit value="Send">  
-    </form>  
-  </div>
-  <div ng-show="name.length>0">Logged in as {{ name }}. 
-  		<!-- <a class="btn" ng-click="logout()">Logout</a> -->
-  </div>
-
+<div ng-controller="HomeCtrl" class="container">
+  <form ng-submit="sendMessage()">
+	  <div class="row" style="margin-top: 30px">
+	  	<div class="col-md-12" >
+		    <div ng-repeat="m in messages" style="background-color: black; color:white">
+		    	<span style="color:yellow">{{ m.name }}:</span><span style="margin-left: 10px">{{ m.message }}</span>
+		    </div>
+		</div>
+	  </div>
+	  <div class="row">
+	  		<div class="col-md-8">
+	  			<input placeholder="Say something.." type="text" ng-model="nextMessage" style="width:100%">
+	  		</div>
+		    <div class="col-md-4"><input class="btn btn-primary" type=submit value="Send"></div> 
+	  </div>  
+  </form>  
 </div>

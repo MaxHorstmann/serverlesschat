@@ -19,7 +19,7 @@ function homeCtrlFunc($scope, auth ,store, $firebaseObject, $firebaseArray){
     			message: $scope.nextMessage
     		};
     		$scope.messages.$add(msg);
-    		$scope.nextMessage='';
+    		$scope.nextMessage = '';
     	}        
     };
 

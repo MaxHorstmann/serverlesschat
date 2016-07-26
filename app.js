@@ -3,7 +3,6 @@ angular.module('app', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute', 'fi
 .run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', runFunction]);
 
 function configFunction($routeProvider, authProvider){
-
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
