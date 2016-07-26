@@ -6,8 +6,18 @@ function homeCtrlFunc($scope, auth ,store){
 
     $scope.messages = ["John: Hi!", "Alice: Hello there!"]; // TODO bind to Firebase
 
+    $scope.logout = function() {
+    	$scope.name='';
+    	auth.signout();
+    	
+    };
+
     $scope.sendMessage = function() {
-        auth.signin(); // TODO only if necessary
-        //alert($scope.nextMessage);
-    }
+    	if (!auth.isAuthenticated) {
+	        auth.signin(); // TODO doesn't work
+    	} else {
+    		alert($scope.nextMessage);
+    		$scope.nextMessage='';
+    	}        
+    };
 }

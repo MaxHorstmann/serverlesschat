@@ -3,7 +3,13 @@
     <p ng-repeat="m in messages">{{ m }}</p>
   </div>
   <div>
-    <input placeholder="say something.." type="text" ng-model="nextMessage">
-    <a class="btn btn-primary" ng-click="sendMessage()">Send</a>
+  	<form ng-submit="sendMessage()">
+	    <input autofocus placeholder="say something.." type="text" ng-model="nextMessage">
+	    <input class="btn btn-primary" type=submit value="Send">  
+    </form>  
   </div>
+  <div ng-show="name.length>0">Logged in as {{ name }}. 
+  		<!-- <a class="btn" ng-click="logout()">Logout</a> -->
+  </div>
+
 </div>
