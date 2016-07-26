@@ -1,4 +1,4 @@
-angular.module('app', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute'])
+angular.module('app', ['auth0', 'angular-storage', 'angular-jwt', 'ngRoute', 'firebase'])
 .config(['$routeProvider', 'authProvider', configFunction])
 .run(['$rootScope', 'auth', 'store', 'jwtHelper', '$location', runFunction]);
 
@@ -43,5 +43,14 @@ function runFunction ($rootScope, auth, store, jwtHelper, $location){
       } 
     }
   });
+
+  // Initialize the Firebase SDK
+  var config = {
+    apiKey: "AIzaSyCqnZoaLPHj6tMCT4EbXKZNwSATq4QRKoU",
+    authDomain: "cloud-vision-1238.firebaseapp.com",
+    databaseURL: "https://cloud-vision-1238.firebaseio.com",
+    storageBucket: "cloud-vision-1238.appspot.com",
+  };
+  firebase.initializeApp(config);
 
 }
