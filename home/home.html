@@ -1,6 +1,8 @@
 <div ng-controller="HomeCtrl">
   <div style="background-color: black; color:white">
-    <p ng-repeat="m in messages">{{ m }}</p>
+    <div ng-repeat="m in messages">
+    	<span style="color:yellow">{{ m.name }}:</span><span style="margin-left: 10px">{{ m.message }}</span>
+    </div>
   </div>
   <div>
   	<form ng-submit="sendMessage()">
