@@ -32,6 +32,12 @@ function homeCtrlFunc($scope, auth ,store, $firebaseObject, $firebaseArray){
     	}        
     };
 
+    $scope.clearAll = function() {
+        // https://www.firebase.com/docs/web/libraries/angular/api.html#angularfire-firebasearray-indexforkey
+        $firebaseObject(firebase.database().ref().child("messages")).$remove();
+        $firebaseObject(firebase.database().ref().child("users")).$remove();
+    };
+
   $scope.messages = $firebaseArray(firebase.database().ref().child("messages"));
   $scope.users = $firebaseArray(firebase.database().ref().child("users"));
 
