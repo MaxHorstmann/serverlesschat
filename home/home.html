@@ -1,17 +1,25 @@
 <div ng-controller="HomeCtrl" class="container">
   <form ng-submit="sendMessage()">
 	  <div class="row" style="margin-top: 30px">
-	  	<div class="col-md-12" >
+	  	<div class="col-md-8" >
 		    <div ng-repeat="m in messages" style="background-color: black; color:white">
-		    	<span style="color:yellow">{{ m.name }}:</span><span style="margin-left: 10px">{{ m.message }}</span>
+		    	<span style="color:yellow">{{ m.name }} ({{ m.userId }}):</span><span style="margin-left: 10px">{{ m.message }}</span>
+		    </div>
+	  		<input placeholder="Say something.." type="text" ng-model="nextMessage" style="width:80%">
+		    <input class="btn btn-primary" type=submit value="Send">
+		</div>
+		<div class="col-md-4" style="background-color: lightgray">
+			<h4>Users:</h4>
+		    <div ng-repeat="u in users">
+		    	{{ u.name }}({{ u.userId }})
 		    </div>
 		</div>
 	  </div>
 	  <div class="row">
-	  		<div class="col-md-8">
-	  			<input placeholder="Say something.." type="text" ng-model="nextMessage" style="width:100%">
-	  		</div>
-		    <div class="col-md-4"><input class="btn btn-primary" type=submit value="Send"></div> 
+
 	  </div>  
+	  <div>
+
+	  </div>
   </form>  
 </div>

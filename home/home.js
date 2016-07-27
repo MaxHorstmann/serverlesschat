@@ -14,8 +14,17 @@ function homeCtrlFunc($scope, auth ,store, $firebaseObject, $firebaseArray){
     	if (!auth.isAuthenticated) {
 	        auth.signin(); 
     	} else {
+
+            var newUser = {
+                userId : $scope.userId,
+                name : $scope.name
+            };
+
+            $scope.users.$add(newUser); // TODO only if doesn't exist yet
+
     		var msg = {
-    			name: $scope.name,
+                userId : $scope.userId,
+                name: $scope.name,
     			message: $scope.nextMessage
     		};
     		$scope.messages.$add(msg);
@@ -23,7 +32,7 @@ function homeCtrlFunc($scope, auth ,store, $firebaseObject, $firebaseArray){
     	}        
     };
 
-  var ref = firebase.database().ref().child("messages");
-  $scope.messages = $firebaseArray(ref);
+  $scope.messages = $firebaseArray(firebase.database().ref().child("messages"));
+  $scope.users = $firebaseArray(firebase.database().ref().child("users"));
 
 }

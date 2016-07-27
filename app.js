@@ -18,15 +18,28 @@ function configFunction($routeProvider, authProvider){
 
 function runFunction ($rootScope, auth, store, jwtHelper, $location){
 
+
+  // Initialize the Firebase SDK
+  var firebaseConfig = {
+    apiKey: "AIzaSyCqnZoaLPHj6tMCT4EbXKZNwSATq4QRKoU",
+    authDomain: "cloud-vision-1238.firebaseapp.com",
+    databaseURL: "https://cloud-vision-1238.firebaseio.com",
+    storageBucket: "cloud-vision-1238.appspot.com",
+  };
+  firebase.initializeApp(firebaseConfig);
+
   var saveUserInfo = function(profile, token) {
     store.set('profile', profile);
     store.set('token', token);
     $rootScope.name = profile.name;
+    $rootScope.userId = profile.user_id;
+
   };
 
   auth.lockOn("authenticated", function(authResult) {
     auth.getProfile(authResult.idToken).then(function (profile) {
       saveUserInfo(profile, authResult.idToken);
+
     })
   });
 
@@ -38,18 +51,11 @@ function runFunction ($rootScope, auth, store, jwtHelper, $location){
           var profile = store.get('profile');
           auth.authenticate(profile, token);
           $rootScope.name = profile.name;
+          $rootScope.userId = profile.user_id;
         }
       } 
     }
   });
 
-  // Initialize the Firebase SDK
-  var config = {
-    apiKey: "AIzaSyCqnZoaLPHj6tMCT4EbXKZNwSATq4QRKoU",
-    authDomain: "cloud-vision-1238.firebaseapp.com",
-    databaseURL: "https://cloud-vision-1238.firebaseio.com",
-    storageBucket: "cloud-vision-1238.appspot.com",
-  };
-  firebase.initializeApp(config);
 
 }
